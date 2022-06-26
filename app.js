@@ -1,4 +1,5 @@
 const { App } = require('@slack/bolt');
+require('dotenv').config();
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
@@ -7,8 +8,10 @@ const app = new App({
 });
 
 function keywordInMessage(message, next) {
-  const keyword = 'hello';
-  if (message.text.includes(keyword)) {
+  const keyword = ['hello', 'hi', 'hey', 'hola', 'bonjour', 'hola', 'bonjour'];
+
+  // Check message.text for a keyword
+  if (keyword.some(word => message.text.toLowerCase().includes(word))) {
     next();
   }
 };
