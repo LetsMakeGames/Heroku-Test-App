@@ -10,15 +10,17 @@ const app = new App({
 function keywordInMessage(message, next) {
   const keyword = ['hello', 'hi', 'hey', 'hola', 'bonjour', 'hola', 'bonjour'];
 
-  // Slice message.text into an array of words
-  const messageArray = message.text.split(' ');
+  console.log(message.test);
 
-  // Loop through each keyword and check if it is in the messageArray
-  for (let i = 0; i < keyword.length; i++) {
-    if (messageArray.includes(keyword[i])) {
-      next();
-    }
-  }
+  // // Slice message.text into an array of words
+  // const messageArray = message.text.split(' ');
+
+  // // Loop through each keyword and check if it is in the messageArray
+  // for (let i = 0; i < keyword.length; i++) {
+  //   if (messageArray.includes(keyword[i])) {
+  //     next();
+  //   }
+  // }
 };
 
 // A function that runs when a keyword from a list is detected
