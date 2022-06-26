@@ -10,9 +10,14 @@ const app = new App({
 function keywordInMessage(message, next) {
   const keyword = ['hello', 'hi', 'hey', 'hola', 'bonjour', 'hola', 'bonjour'];
 
-  // Check message.text for a keyword
-  if (keyword.some(word => message.text.toLowerCase().includes(word))) {
-    next();
+  // Slice message.text into an array of words
+  const messageArray = message.text.split(' ');
+
+  // Loop through each keyword and check if it is in the messageArray
+  for (let i = 0; i < keyword.length; i++) {
+    if (messageArray.includes(keyword[i])) {
+      next();
+    }
   }
 };
 
